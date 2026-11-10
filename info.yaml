@@ -1,0 +1,48 @@
+yaml_version: 6
+
+project:
+  title: "4-Core SIMD Compute GPU"
+  description: "A programmable 4-core SIMD mini-GPU optimized for hardware MAC operations."
+  how_it_works: "Accepts 16-bit instructions streamed serially via an 8-bit bus into an internal Instruction RAM."
+  how_to_test: "Set prog_mode high to stream instructions via ui_in, switch low and pulse start."
+  author: "Valdemar Olsson"
+  language: "Verilog"
+  clock_hz: 25000000
+
+pinout:
+  ui_in:
+    - "io_din"
+    - "io_din"
+    - "io_din"
+    - "io_din"
+    - "io_din"
+    - "io_din"
+    - "io_din"
+    - "io_din"
+  uo_out:
+    - "io_dout"
+    - "io_dout"
+    - "io_dout"
+    - "io_dout"
+    - "io_dout"
+    - "io_dout"
+    - "io_dout"
+    - "io_dout"
+  uio_in:
+    - "prog_mode"
+    - "prog_write_en"
+    - "start"
+    - "none"
+    - "none"
+    - "none"
+    - "none"
+    - "none"
+  uio_out:
+    - "none"
+    - "none"
+    - "none"
+    - "done"
+    - "none"
+    - "none"
+    - "none"
+    - "none"
