@@ -1,51 +1,45 @@
 yaml_version: 6
 
 project:
-  title: "4-Core SIMD Compute GPU"
-  description: "A programmable 4-core SIMD mini-GPU optimized for hardware MAC operations."
+  title:        "4-Core SIMD Compute GPU"
+  description:  "A programmable 4-core SIMD mini-GPU optimized for hardware MAC operations."
   how_it_works: "Accepts 16-bit instructions streamed serially via an 8-bit bus into an internal Instruction RAM."
-  how_to_test: "Set prog_mode high to stream instructions via ui_in, switch low and pulse start."
-  author: "Valdemar Olsson"
-  language: "Verilog"
-  clock_hz: 25000000
-  tiles: "1x1"
-  top_module: "tt_um_MyMiniGpu"
-  source_files: "design.v"
+  how_to_test:  "Set prog_mode high to stream instructions via ui_in, switch low and pulse start."
+  author:       "Valdemar Olsson"
+  language:     "Verilog"
+  clock_hz:     25000000
+  tiles:        "1x1"
+  top_module:   "tt_um_valdemar_gpu"
+  source_files:
+    - "design.v"
 
 pinout:
-  ui_in:
-    - "io_din"
-    - "io_din"
-    - "io_din"
-    - "io_din"
-    - "io_din"
-    - "io_din"
-    - "io_din"
-    - "io_din"
-  uo_out:
-    - "io_dout"
-    - "io_dout"
-    - "io_dout"
-    - "io_dout"
-    - "io_dout"
-    - "io_dout"
-    - "io_dout"
-    - "io_dout"
-  uio_in:
-    - "prog_mode"
-    - "prog_write_en"
-    - "start"
-    - "none"
-    - "none"
-    - "none"
-    - "none"
-    - "none"
-  uio_out:
-    - "none"
-    - "none"
-    - "none"
-    - "done"
-    - "none"
-    - "none"
-    - "none"
-    - "none"
+  # Inputs
+  ui[0]: "io_din[0]"
+  ui[1]: "io_din[1]"
+  ui[2]: "io_din[2]"
+  ui[3]: "io_din[3]"
+  ui[4]: "io_din[4]"
+  ui[5]: "io_din[5]"
+  ui[6]: "io_din[6]"
+  ui[7]: "io_din[7]"
+
+  # Outputs
+  uo[0]: "io_dout[0]"
+  uo[1]: "io_dout[1]"
+  uo[2]: "io_dout[2]"
+  uo[3]: "io_dout[3]"
+  uo[4]: "io_dout[4]"
+  uo[5]: "io_dout[5]"
+  uo[6]: "io_dout[6]"
+  uo[7]: "io_dout[7]"
+
+  # Bidirectional pins
+  uio[0]: "prog_mode"
+  uio[1]: "prog_write_en"
+  uio[2]: "start"
+  uio[3]: "done"
+  uio[4]: ""
+  uio[5]: ""
+  uio[6]: ""
+  uio[7]: ""
